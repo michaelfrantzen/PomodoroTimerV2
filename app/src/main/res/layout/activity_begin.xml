@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.michael.pomodorotimer.BeginActivity">
+
+    <Button
+        android:id="@+id/begin_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="130dp"
+        android:text="Begin"
+        android:textSize="25dp" />
+
+    <EditText
+        android:id="@+id/time_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rest_amount"
+        android:layout_centerHorizontal="true"
+        android:hint="Work Time"
+        android:textSize="25dp" />
+
+    <EditText
+        android:id="@+id/rest_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/interval_amount"
+        android:layout_centerHorizontal="true"
+        android:hint="Rest Time"
+        android:textSize="25dp" />
+
+    <EditText
+        android:id="@+id/interval_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/begin_button"
+        android:layout_centerHorizontal="true"
+        android:hint="Interval amount"
+        android:textSize="25dp" />
+
+    <EditText
+        android:id="@+id/profile_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/time_amount"
+        android:layout_centerHorizontal="true"
+        android:hint="Profile Name"
+        android:textSize="25dp" />
+
+</RelativeLayout>
