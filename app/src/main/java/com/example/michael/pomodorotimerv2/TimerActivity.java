@@ -3,6 +3,7 @@ package com.example.michael.pomodorotimerv2;
 import android.app.Activity;
 import android.app.Notification;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.nfc.Tag;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -121,6 +122,8 @@ public class TimerActivity extends Activity {
 
             @Override
             public void onFinish() {
+                MediaPlayer mp = MediaPlayer.create(getApplicationContext(),R.raw.beep);
+                mp.start();
                 workIsFinished = true;
                 mStartButton.setText("Start");
                 workTimerRunning = false;
@@ -171,6 +174,8 @@ public class TimerActivity extends Activity {
 
             @Override
             public void onFinish() {
+                MediaPlayer mp = MediaPlayer.create(getApplicationContext(),R.raw.beep);
+                mp.start();
                 decrementInterval();
                 workResetTimer();
                 workUpdateTimer();
