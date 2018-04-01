@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -33,44 +34,59 @@ public class ProfileActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
-        Log.d(TAG, "onCreate() called");
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
         profileDir = new ProfileDir(this.getApplicationContext());
         profiles = profileDir.getmProfiles();
+        super.onCreate(savedInstanceState);
+
+        if(profiles.size() == 0){
+
+            Log.d(TAG, "noprofile layout set");
+            setContentView(R.layout.empty_profile);
+            Button mStartButton = (Button) findViewById(R.id.empty_start);
+            mStartButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(ProfileActivity.this, BeginActivity.class);
+                    ProfileActivity.this.startActivity(i);
+                }
+            });
+        } else {
+
+            setContentView(R.layout.activity_profile);
+            Log.d(TAG, "Activity_profile layout set");
+            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
 
 
-        ArrayAdapter adapter = new ArrayAdapter<Profile>(this, R.layout.listview, profiles);
+            ArrayAdapter adapter = new ArrayAdapter<Profile>(this, R.layout.listview, profiles);
 
-        final ListView listView = (ListView)findViewById(R.id.mobile_list);
-        listView.setAdapter(adapter);
+            final ListView listView = (ListView) findViewById(R.id.mobile_list);
+            listView.setAdapter(adapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.d(TAG, "ListView CLicked");
-                Profile p = (Profile)listView.getItemAtPosition(position);
-                Intent i = new Intent(ProfileActivity.this, TimerActivity.class);
-                i.putExtra("timeAmount", ""+p.getWorkTime());
-                i.putExtra("restAmount", ""+p.getRestTime());
-                i.putExtra("intervalAmount", ""+p.getInterval());
-                i.putExtra("profileName", p.getName());
-                ProfileActivity.this.startActivity(i);
-            }
-        });
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Log.d(TAG, "ListView CLicked");
+                    Profile p = (Profile) listView.getItemAtPosition(position);
+                    Intent i = new Intent(ProfileActivity.this, TimerActivity.class);
+                    i.putExtra("timeAmount", "" + p.getWorkTime());
+                    i.putExtra("restAmount", "" + p.getRestTime());
+                    i.putExtra("intervalAmount", "" + p.getInterval());
+                    i.putExtra("profileName", p.getName());
+                    ProfileActivity.this.startActivity(i);
+                }
+            });
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d(TAG, " Floating Action Bar CLicked");
-                Intent i = new Intent(ProfileActivity.this, BeginActivity.class);
-                ProfileActivity.this.startActivity(i);
-            }
-        });
+            FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Log.d(TAG, " Floating Action Bar CLicked");
+                    Intent i = new Intent(ProfileActivity.this, BeginActivity.class);
+                    ProfileActivity.this.startActivity(i);
+                }
+            });
+        }
     }
 
     @Override
