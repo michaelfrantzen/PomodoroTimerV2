@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://C:\Users\micha\StudioProjects\Pomodoro_Timer_COSC_3489_Project\PomodoroTimerV2.iml" filepath="C:\Users\micha\StudioProjects\Pomodoro_Timer_COSC_3489_Project\PomodoroTimerV2.iml" />
       <module fileurl="file://$PROJECT_DIR$/Pomodoro_Timer_COSC_3489_Project.iml" filepath="$PROJECT_DIR$/Pomodoro_Timer_COSC_3489_Project.iml" />
-      <module fileurl="file://C:\Users\Michael\ApkProjects\Pomodoro_Timer_COSC_3489_Project\Pomodoro_Timer_COSC_3489_Project.iml" filepath="C:\Users\Michael\ApkProjects\Pomodoro_Timer_COSC_3489_Project\Pomodoro_Timer_COSC_3489_Project.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\Michael\ApkProjects\Pomodoro_Timer_COSC_3489_Project\app\app.iml" filepath="C:\Users\Michael\ApkProjects\Pomodoro_Timer_COSC_3489_Project\app\app.iml" />
-      <module fileurl="file://C:\Users\micha\StudioProjects\Pomodoro_Timer_COSC_3489_Project\app\app.iml" filepath="C:\Users\micha\StudioProjects\Pomodoro_Timer_COSC_3489_Project\app\app.iml" />
     </modules>
   </component>
 </project>
