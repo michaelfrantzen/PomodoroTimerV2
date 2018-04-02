@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView5"
         android:layout_centerHorizontal="true"
-        android:text="Start"
+        android:text="Create Profile"
         android:textSize="30dp" />
 
     <ImageView

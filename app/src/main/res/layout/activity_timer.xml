@@ -63,4 +63,12 @@
         android:layout_height="wrap_content"
         android:src="@drawable/exit" />
 
+    <ImageButton
+        android:id="@+id/reset_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/textView"
+        android:src="@drawable/reset" />
+
 </RelativeLayout>

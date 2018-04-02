@@ -23,6 +23,7 @@ public class TimerActivity extends Activity {
     private Button mStartButton;
     private TextView mRestCountDownText;
     private ImageButton mExitButton;
+    private ImageButton mResetButton;
 
     private TextView mIntervalText;
     private int interval;
@@ -47,6 +48,7 @@ public class TimerActivity extends Activity {
         profileName = i.getStringExtra("profileName");
 
         mExitButton = (ImageButton) findViewById(R.id.exit_button);
+        mResetButton = (ImageButton)findViewById(R.id.reset_button);
 
         interval = Integer.parseInt(i.getStringExtra("intervalAmount"));
         mIntervalText = (TextView) findViewById(R.id.interval_countdown);
@@ -80,9 +82,24 @@ public class TimerActivity extends Activity {
         mExitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startStop();
                 Log.d(TAG, "Exit Button Clicked");
                 Intent i = new Intent(TimerActivity.this, ProfileActivity.class);
                 TimerActivity.this.startActivity(i);
+            }
+        });
+
+        mResetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isTimerRunning() == true){
+                    startStop();
+                }
+                workIsFinished = false;
+                workResetTimer();
+                restResetTimer();
+                workUpdateTimer();
+                restUpdateTimer();
             }
         });
     }
@@ -215,6 +232,16 @@ public class TimerActivity extends Activity {
         mIntervalText.setText(""+interval);
         mStartButton.setText("Restart");
         workIsFinished = false;
+    }
+
+    public boolean isTimerRunning(){
+        if (workTimerRunning == true){
+            return true;
+        } else if (restTimerRunning == true){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
