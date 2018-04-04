@@ -72,6 +72,14 @@
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/textView"
         android:src="@drawable/reset" />
+    <TextView
+        android:id="@+id/profile_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/interval_countdown"
+        android:layout_centerHorizontal="true"
+        android:textSize="40dp"
+        android:text="name"/>
 
 
 

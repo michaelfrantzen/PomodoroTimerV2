@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class TimerActivity extends Activity {
@@ -25,9 +26,11 @@ public class TimerActivity extends Activity {
     private TextView mRestCountDownText;
     private ImageButton mExitButton;
     private ImageButton mResetButton;
+    private TextView mProfileName;
 
     private TextView mIntervalText;
     private int interval;
+    private int start_interval;
 
     private boolean workTimerRunning;
     private CountDownTimer workCountDownTimer;
@@ -47,13 +50,16 @@ public class TimerActivity extends Activity {
         setContentView(R.layout.activity_timer);
         Intent i = getIntent();
         profileName = i.getStringExtra("profileName");
-        profileDir = (ProfileDir)i.getSerializableExtra("dir");
+
+        mProfileName = (TextView)findViewById(R.id.profile_title);
+        mProfileName.setText(profileName);
 
         mExitButton = (ImageButton) findViewById(R.id.exit_button);
         mResetButton = (ImageButton)findViewById(R.id.reset_button);
 
 
         interval = Integer.parseInt(i.getStringExtra("intervalAmount"));
+        start_interval = interval;
         mIntervalText = (TextView) findViewById(R.id.interval_countdown);
         mIntervalText.setText(""+interval);
 
@@ -146,6 +152,7 @@ public class TimerActivity extends Activity {
 
             @Override
             public void onFinish() {
+                Toast.makeText(TimerActivity.this, R.string.interval_complete, Toast.LENGTH_SHORT).show();
                 MediaPlayer mp = MediaPlayer.create(getApplicationContext(),R.raw.beep);
                 mp.start();
                 workIsFinished = true;
@@ -236,9 +243,17 @@ public class TimerActivity extends Activity {
     public void decrementInterval(){
         Log.d(TAG, "decrementInterval() called");
         interval--;
+        if (interval != 0){
+            Toast.makeText(TimerActivity.this, R.string.interval_complete, Toast.LENGTH_SHORT).show();
+        }
+        if (interval == 0){
+            Toast.makeText(TimerActivity.this,R.string.timer_complete,Toast.LENGTH_LONG).show();
+            interval = start_interval;
+        }
         mIntervalText.setText(""+interval);
         mStartButton.setText("Restart");
         workIsFinished = false;
+        restTimerRunning = false;
     }
 
     public boolean isTimerRunning(){
