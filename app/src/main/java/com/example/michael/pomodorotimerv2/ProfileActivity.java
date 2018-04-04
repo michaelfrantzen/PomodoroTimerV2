@@ -1,37 +1,25 @@
 package com.example.michael.pomodorotimerv2;
 
 import android.content.Intent;
-import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import org.json.JSONException;
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class ProfileActivity extends AppCompatActivity {
     private static final String TAG = "ProfileActivity";
     ArrayList<Profile> profiles = null;
     private ProfileDir profileDir;
-
     @Override
     protected void onCreate(Bundle savedInstanceState){
         profileDir = new ProfileDir(this.getApplicationContext());
@@ -58,7 +46,7 @@ public class ProfileActivity extends AppCompatActivity {
             setSupportActionBar(toolbar);
 
 
-            ArrayAdapter adapter = new ArrayAdapter<Profile>(this, R.layout.listview, profiles);
+            final ArrayAdapter adapter = new ArrayAdapter<Profile>(this, R.layout.listview, profiles);
 
             final ListView listView = (ListView) findViewById(R.id.mobile_list);
             listView.setAdapter(adapter);
@@ -77,6 +65,7 @@ public class ProfileActivity extends AppCompatActivity {
                 }
             });
 
+
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -84,6 +73,16 @@ public class ProfileActivity extends AppCompatActivity {
                     Log.d(TAG, " Floating Action Bar CLicked");
                     Intent i = new Intent(ProfileActivity.this, BeginActivity.class);
                     ProfileActivity.this.startActivity(i);
+                }
+            });
+
+            FloatingActionButton fab2 = (FloatingActionButton)findViewById(R.id.fab2);
+            fab2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    profiles.clear();
+                    adapter.notifyDataSetChanged();
+                    setContentView(R.layout.empty_profile);
                 }
             });
         }

@@ -3,13 +3,14 @@ package com.example.michael.pomodorotimerv2;
 import android.content.Context;
 import android.util.Log;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by Michael on 3/28/2018.
  */
 
-public class ProfileDir {
+public class ProfileDir{
     private static final String TAG = "ProfileDir";
     private static final String FILENAME = "profiles.json";
 
@@ -49,4 +50,6 @@ public class ProfileDir {
             return false;
         }
     }
+
+
 }
