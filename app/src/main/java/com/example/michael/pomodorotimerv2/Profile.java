@@ -4,9 +4,10 @@ package com.example.michael.pomodorotimerv2;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.UUID;
 
-public class Profile extends Object {
+public class Profile extends Object{
     private static final String JSON_NAME = "name";
     private static final String JSON_WORK = "work";
     private static final String JSON_REST = "rest";

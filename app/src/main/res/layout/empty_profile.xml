@@ -7,7 +7,7 @@
         android:id="@+id/empty_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView5"
+        android:layout_below="@+id/textView4"
         android:layout_centerHorizontal="true"
         android:text="Create Profile"
         android:textSize="30dp" />
@@ -28,13 +28,6 @@
         android:text="You have not created a profile yet"
         android:textSize="25dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView4"
-        android:layout_centerHorizontal="true"
-        android:text="press start to begin"
-        android:textSize="25dp"
-        android:id="@+id/textView5" />
+
 
 </RelativeLayout>
