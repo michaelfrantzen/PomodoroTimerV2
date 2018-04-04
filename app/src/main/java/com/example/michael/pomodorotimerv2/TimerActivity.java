@@ -19,6 +19,7 @@ public class TimerActivity extends Activity {
 
     private static final String TAG = "TimerActivity";
     private String profileName;
+    private ProfileDir profileDir;
 
     private TextView mWorkCountDownText;
     private Button mStartButton;
@@ -49,10 +50,13 @@ public class TimerActivity extends Activity {
         setContentView(R.layout.activity_timer);
         Intent i = getIntent();
         profileName = i.getStringExtra("profileName");
+
         mProfileName = (TextView)findViewById(R.id.profile_title);
         mProfileName.setText(profileName);
+
         mExitButton = (ImageButton) findViewById(R.id.exit_button);
         mResetButton = (ImageButton)findViewById(R.id.reset_button);
+
 
         interval = Integer.parseInt(i.getStringExtra("intervalAmount"));
         start_interval = interval;
@@ -87,7 +91,9 @@ public class TimerActivity extends Activity {
         mExitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startStop();
+                if (isTimerRunning() == true){
+                    startStop();
+                }
                 Log.d(TAG, "Exit Button Clicked");
                 Intent i = new Intent(TimerActivity.this, ProfileActivity.class);
                 TimerActivity.this.startActivity(i);
@@ -107,6 +113,8 @@ public class TimerActivity extends Activity {
                 restUpdateTimer();
             }
         });
+
+
     }
 
     public void startStop(){

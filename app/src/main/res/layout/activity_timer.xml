@@ -61,6 +61,8 @@
         android:id="@+id/exit_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
         android:src="@drawable/exit" />
 
     <ImageButton
@@ -68,7 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/textView"
+        android:layout_toEndOf="@+id/textView"
         android:src="@drawable/reset" />
     <TextView
         android:id="@+id/profile_title"
@@ -78,5 +80,7 @@
         android:layout_centerHorizontal="true"
         android:textSize="40dp"
         android:text="name"/>
+
+
 
 </RelativeLayout>
