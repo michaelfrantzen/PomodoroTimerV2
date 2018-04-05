@@ -46,6 +46,7 @@ public class ProfileActivity extends AppCompatActivity {
             setSupportActionBar(toolbar);
 
 
+
             final ArrayAdapter adapter = new ArrayAdapter<Profile>(this, R.layout.listview, profiles);
 
             final ListView listView = (ListView) findViewById(R.id.mobile_list);
@@ -83,6 +84,14 @@ public class ProfileActivity extends AppCompatActivity {
                     profiles.clear();
                     adapter.notifyDataSetChanged();
                     setContentView(R.layout.empty_profile);
+                    Button mStartButton = (Button) findViewById(R.id.empty_start);
+                    mStartButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent i = new Intent(ProfileActivity.this, BeginActivity.class);
+                            ProfileActivity.this.startActivity(i);
+                        }
+                    });
                 }
             });
         }
