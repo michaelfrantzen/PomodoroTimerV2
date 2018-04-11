@@ -72,6 +72,23 @@ public class ProfileIntentJSONSerializer extends Object {
         }
     }
 
-
+    public void deleteProfile(ArrayList<Profile> profiles, int positon)
+    throws JSONException, IOException{
+        JSONArray array = new JSONArray();
+        for (Profile p : profiles){
+            array.put(p.toJSON());
+        }
+        array.remove(positon);
+        Writer writer = null;
+        try {
+            OutputStream out = mContext.openFileOutput(mFileName, Context.MODE_PRIVATE);
+            writer = new OutputStreamWriter(out);
+            writer.write(array.toString());
+        }finally {
+            if (writer != null){
+                writer.close();
+            }
+        }
+    }
 }
 

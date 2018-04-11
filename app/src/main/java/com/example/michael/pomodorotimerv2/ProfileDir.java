@@ -51,5 +51,13 @@ public class ProfileDir{
         }
     }
 
+    public void deleteProfile(int postiton){
+        try {
+            mSerializer.deleteProfile(mProfiles, postiton);
+        }catch (Exception e){
+            Log.e(TAG, "Error saving Profiles: ", e);
+        }
+    }
+
 
 }
