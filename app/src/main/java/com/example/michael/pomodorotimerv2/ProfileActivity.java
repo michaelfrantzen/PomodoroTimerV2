@@ -39,33 +39,14 @@ public class ProfileActivity extends AppCompatActivity {
                 }
             });
         } else {
-
             setContentView(R.layout.activity_profile);
             Log.d(TAG, "Activity_profile layout set");
             Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
 
-
-
-            final ArrayAdapter adapter = new ArrayAdapter<Profile>(this, R.layout.listview, profiles);
-
-            final ListView listView = (ListView) findViewById(R.id.mobile_list);
+            final MyCustomerAdapter adapter = new MyCustomerAdapter(profiles, this, profileDir);
+            final ListView listView = (ListView)findViewById(R.id.mobile_list);
             listView.setAdapter(adapter);
-
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Log.d(TAG, "ListView CLicked");
-                    Profile p = (Profile) listView.getItemAtPosition(position);
-                    Intent i = new Intent(ProfileActivity.this, TimerActivity.class);
-                    i.putExtra("timeAmount", "" + p.getWorkTime());
-                    i.putExtra("restAmount", "" + p.getRestTime());
-                    i.putExtra("intervalAmount", "" + p.getInterval());
-                    i.putExtra("profileName", p.getName());
-                    ProfileActivity.this.startActivity(i);
-                }
-            });
-
 
             FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
             fab.setOnClickListener(new View.OnClickListener() {
@@ -77,23 +58,6 @@ public class ProfileActivity extends AppCompatActivity {
                 }
             });
 
-            FloatingActionButton fab2 = (FloatingActionButton)findViewById(R.id.fab2);
-            fab2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    profiles.clear();
-                    adapter.notifyDataSetChanged();
-                    setContentView(R.layout.empty_profile);
-                    Button mStartButton = (Button) findViewById(R.id.empty_start);
-                    mStartButton.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Intent i = new Intent(ProfileActivity.this, BeginActivity.class);
-                            ProfileActivity.this.startActivity(i);
-                        }
-                    });
-                }
-            });
         }
     }
 
