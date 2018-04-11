@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class BeginActivity extends AppCompatActivity {
 
@@ -42,18 +43,25 @@ public class BeginActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Log.d(TAG, "begin button pressed");
-                currentProfile = new Profile(mProfileName.getText().toString(), mTimeAmount.getText().toString(),
-                        mRestAmount.getText().toString(), mIntervalAmount.getText().toString());
-                profileDir.addProfile(currentProfile);
-                profileDir.saveProfiles();
-                Intent i = new Intent(BeginActivity.this, TimerActivity.class);
-                i.putExtra("profileName", mProfileName.getText().toString());
-                i.putExtra("timeAmount", mTimeAmount.getText().toString());
-                i.putExtra("restAmount", mRestAmount.getText().toString());
-                i.putExtra("intervalAmount", mIntervalAmount.getText().toString());
-                BeginActivity.this.startActivity(i);
-
+                Toast toast = Toast.makeText(BeginActivity.this, "One or more fields is empty", Toast.LENGTH_SHORT);
+                if (mProfileName.getText().toString().isEmpty()|
+                        mTimeAmount.getText().toString().isEmpty()|
+                        mRestAmount.getText().toString().isEmpty()|
+                        mIntervalAmount.getText().toString().isEmpty()) {
+                    toast.show();
+                } else {
+                    Log.d(TAG, "begin button pressed");
+                    currentProfile = new Profile(mProfileName.getText().toString(), mTimeAmount.getText().toString(),
+                            mRestAmount.getText().toString(), mIntervalAmount.getText().toString());
+                    profileDir.addProfile(currentProfile);
+                    profileDir.saveProfiles();
+                    Intent i = new Intent(BeginActivity.this, TimerActivity.class);
+                    i.putExtra("profileName", mProfileName.getText().toString());
+                    i.putExtra("timeAmount", mTimeAmount.getText().toString());
+                    i.putExtra("restAmount", mRestAmount.getText().toString());
+                    i.putExtra("intervalAmount", mIntervalAmount.getText().toString());
+                    BeginActivity.this.startActivity(i);
+                }
             }
         });
     }
