@@ -1,5 +1,6 @@
 package com.example.michael.pomodorotimerv2;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -76,8 +77,8 @@ public class ProfileActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_about) {
+            setContentView(R.layout.about);
         }
 
         return super.onOptionsItemSelected(item);
