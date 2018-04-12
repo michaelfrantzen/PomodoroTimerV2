@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="130dp"
+        android:layout_marginBottom="207dp"
         android:text="Begin"
         android:textSize="25dp" />
 
@@ -38,8 +38,7 @@
         android:id="@+id/interval_amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/begin_button"
-        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
         android:hint="Interval amount"
         android:textSize="25dp" />
 
