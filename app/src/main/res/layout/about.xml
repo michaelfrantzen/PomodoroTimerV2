@@ -4,6 +4,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <ImageButton
+        android:id="@+id/about_exit_button"
+        android:layout_gravity="right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/exit" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,10 +24,6 @@
         android:text="Creators: Michael Frantzen, Payton Gann"
         android:textSize="24dp"
         android:padding="8dp"/>
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:src="@drawable/daisy"/>
+
 
 </LinearLayout>
