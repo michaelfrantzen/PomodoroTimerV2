@@ -17,6 +17,15 @@
         android:textSize="25dp" />
 
     <EditText
+        android:id="@+id/profile_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/time_amount"
+        android:layout_centerHorizontal="true"
+        android:hint="Profile Name"
+        android:textSize="25dp" />
+
+    <EditText
         android:id="@+id/time_amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -42,13 +51,6 @@
         android:hint="Interval amount"
         android:textSize="25dp" />
 
-    <EditText
-        android:id="@+id/profile_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/time_amount"
-        android:layout_centerHorizontal="true"
-        android:hint="Profile Name"
-        android:textSize="25dp" />
+
 
 </RelativeLayout>

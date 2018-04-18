@@ -60,6 +60,7 @@ public class BeginActivity extends AppCompatActivity {
                     i.putExtra("timeAmount", mTimeAmount.getText().toString());
                     i.putExtra("restAmount", mRestAmount.getText().toString());
                     i.putExtra("intervalAmount", mIntervalAmount.getText().toString());
+                    i.putExtra("position", 545);
                     BeginActivity.this.startActivity(i);
                 }
             }

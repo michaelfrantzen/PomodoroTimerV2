@@ -20,12 +20,14 @@ public class TimerActivity extends Activity {
     private static final String TAG = "TimerActivity";
     private String profileName;
     private ProfileDir profileDir;
+    private int position;
 
     private TextView mWorkCountDownText;
     private Button mStartButton;
     private TextView mRestCountDownText;
     private ImageButton mExitButton;
     private ImageButton mResetButton;
+    private ImageButton mDeleteButton;
     private TextView mProfileName;
 
     private TextView mIntervalText;
@@ -49,13 +51,16 @@ public class TimerActivity extends Activity {
         Log.d(TAG, "onCreate(bundle) called");
         setContentView(R.layout.activity_timer);
         Intent i = getIntent();
+        profileDir = new ProfileDir(this);
         profileName = i.getStringExtra("profileName");
+        position = i.getExtras().getInt("position");
 
         mProfileName = (TextView)findViewById(R.id.profile_title);
         mProfileName.setText(profileName);
 
         mExitButton = (ImageButton) findViewById(R.id.exit_button);
         mResetButton = (ImageButton)findViewById(R.id.reset_button);
+        mDeleteButton = (ImageButton)findViewById(R.id.timer_delete_button);
 
 
         interval = Integer.parseInt(i.getStringExtra("intervalAmount"));
@@ -114,7 +119,20 @@ public class TimerActivity extends Activity {
             }
         });
 
+        mDeleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (position == 545){
+                    profileDir.deleteProfile(profileDir.getmProfiles().size() -1);
+                }else {
+                    profileDir.deleteProfile(position);
+                }
+                Log.d(TAG, "Delete Button Clicked");
+                Intent i = new Intent(TimerActivity.this, ProfileActivity.class);
+                TimerActivity.this.startActivity(i);
 
+            }
+        });
     }
 
     public void startStop(){
