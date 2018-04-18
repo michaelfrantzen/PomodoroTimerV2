@@ -61,7 +61,7 @@
         android:id="@+id/exit_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:src="@drawable/exit" />
 
@@ -72,6 +72,14 @@
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/textView"
         android:src="@drawable/reset" />
+
+    <ImageButton
+        android:id="@+id/timer_delete_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/trash_black" />
     <TextView
         android:id="@+id/profile_title"
         android:layout_width="wrap_content"

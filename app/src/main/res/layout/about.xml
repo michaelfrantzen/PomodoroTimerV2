@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="contentdescription"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -14,16 +16,22 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This timer was created for a software engineering project in Spring 2018"
+        android:text="This timer was created for a COSC 3489 group project in Spring 2018"
         android:textSize="20dp"
         android:padding="8dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Creators: Michael Frantzen, Payton Gann"
+        android:text="Creators: Michael Frantzen, Payton Gann, Harshil Patel, and Jacob Denton"
         android:textSize="24dp"
         android:padding="8dp"/>
+
+    <ImageView
+        android:id="@+id/daisy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/daisy" />
 
 
 </LinearLayout>

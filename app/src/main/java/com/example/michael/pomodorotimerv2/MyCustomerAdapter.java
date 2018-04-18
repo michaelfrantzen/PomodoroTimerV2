@@ -60,6 +60,7 @@ public class MyCustomerAdapter extends BaseAdapter implements ListAdapter {
                 i.putExtra("restAmount", "" + p.getRestTime());
                 i.putExtra("intervalAmount", "" + p.getInterval());
                 i.putExtra("profileName", p.getName());
+                i.putExtra("position", position);
                 context.startActivity(i);
             }
         });
